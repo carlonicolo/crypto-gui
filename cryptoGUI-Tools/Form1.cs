@@ -16,7 +16,7 @@ namespace cryptoGUI_Tools
         }
         #region UI events
 
-        private void cmdDeserialise_Click_1(object sender, EventArgs e)
+        private void cmdDeserialise2_Click(object sender, EventArgs e)
         {
 
             string url = @"https://api.coinmarketcap.com/v1/ticker/?convert=EUR";
@@ -28,7 +28,7 @@ namespace cryptoGUI_Tools
             deserialiseJSON(json);
         }
 
-        private void cmdClear_Click(object sender, EventArgs e)
+        private void cmdClear2_Click(object sender, EventArgs e)
         {
             txtDebugOutput.Text = string.Empty;
         }
@@ -85,8 +85,23 @@ namespace cryptoGUI_Tools
 
         }
 
+
+
         #endregion
 
-       
+        private void button6_Click(object sender, EventArgs e)
+        {
+            lblResult.Text = cmbCrypto.SelectedItem.ToString();
+            float amountVal = (float)double.Parse(textQuantity.Text);
+            Console.WriteLine("Value of amountVal: " + amountVal);
+            Console.WriteLine("Type of amountVal: " + amountVal.GetType());
+            //string url = @"https://api.coinmarketcap.com/v1/ticker/?convert=EUR";
+
+            ////Using System.Net
+            //var json = new WebClient().DownloadString(url);
+
+            //Console.WriteLine("This is the json variable content: " + json);
+            //deserialiseJSON(json);
+        }
     }
 }
