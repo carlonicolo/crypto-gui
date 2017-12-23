@@ -1,9 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,5 +14,79 @@ namespace cryptoGUI_Tools
         {
             InitializeComponent();
         }
+        #region UI events
+
+        private void cmdDeserialise_Click_1(object sender, EventArgs e)
+        {
+
+            string url = @"https://api.coinmarketcap.com/v1/ticker/?convert=EUR";
+
+            //Using System.Net
+            var json = new WebClient().DownloadString(url);
+
+            Console.WriteLine("This is the json variable content: " + json);
+            deserialiseJSON(json);
+        }
+
+        private void cmdClear_Click(object sender, EventArgs e)
+        {
+            txtDebugOutput.Text = string.Empty;
+        }
+
+
+        #endregion
+
+
+        #region json functions
+
+        private void deserialiseJSON(string strJSON)
+        {
+            try
+            {
+                //var jPerson = JsonConvert.DeserializeObject<dynamic>(strJSON);
+                //debugOutput("Here's our JSON Object " + jPerson.ToString());
+                //debugOutput("Here's the id: " + jPerson[1].id);
+
+                //
+                var jCrypto = JsonConvert.DeserializeObject<List<jsonCrypto>>(strJSON);
+
+                debugOutput("Here's our JSON Object " + jCrypto.GetType());
+                debugOutput("This should be equals to bitcoin ---> " + jCrypto[0].id.ToString());
+                //debugOutput("Here's the id: " + jCrypto.id);
+
+
+            }
+            catch (Exception ex)
+            {
+                debugOutput("We had a problem: " + ex.Message.ToString());
+            }
+        }
+
+        #endregion
+
+
+
+
+        #region Debug Output
+
+        private void debugOutput(string strDebugText)
+        {
+            try
+            {
+                System.Diagnostics.Debug.Write(strDebugText + Environment.NewLine);
+                txtDebugOutput.Text = txtDebugOutput.Text + strDebugText + Environment.NewLine;
+                txtDebugOutput.SelectionStart = txtDebugOutput.TextLength;
+                txtDebugOutput.ScrollToCaret();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Write(ex.Message.ToString() + Environment.NewLine);
+            }
+
+        }
+
+        #endregion
+
+       
     }
 }
