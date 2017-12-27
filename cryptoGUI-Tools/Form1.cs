@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,7 +19,7 @@ namespace cryptoGUI_Tools
             InitializeComponent();
             cmbCrypto.SelectedIndex = 0;
             cmbFiat.SelectedIndex = 0;
-            textQuantity.Text = "0";
+            textQuantity.Text = "0,0";
         }
 
 
@@ -62,7 +63,18 @@ namespace cryptoGUI_Tools
             //Console.WriteLine("Value of amountVal: " + amountVal);
             //Console.WriteLine("Type of amountVal: " + amountVal.GetType());
 
+            var regex = new Regex(@"^-*[0-9,\.]+$");
+            bool isValid = regex.IsMatch(textQuantity.Text);
+
+            if (!isValid)
+            {
+                string no_quantity = "Insert a numeric value formatted in this way 0,0";
+                debugOutput(no_quantity);
+            }
+            else { 
+
             string selectedCrypto = cmbCrypto.SelectedItem.ToString();
+            string selectedFiat = cmbFiat.SelectedItem.ToString();
             string url = @"https://api.coinmarketcap.com/v1/ticker/" + selectedCrypto + "/?convert=EUR";
 
             //string url = @"https://api.coinmarketcap.com/v1/ticker/?convert=EUR";
@@ -71,7 +83,8 @@ namespace cryptoGUI_Tools
             var json = new WebClient().DownloadString(url);
 
             //This function make extract the value and make the computation
-            exchange(json);
+            exchange(json, selectedFiat);
+            }
 
         }
         #endregion
@@ -189,7 +202,7 @@ namespace cryptoGUI_Tools
 
         #region button methods
 
-        private void exchange(string strJSON)
+        private void exchange(string strJSON, string selecetedFiat)
         {
             var jCrypto = JsonConvert.DeserializeObject<List<jsonCrypto>>(strJSON);
             //debugOutput("This should be equals to the selected crypto ---> " + jCrypto[0].id.ToString());
@@ -199,13 +212,28 @@ namespace cryptoGUI_Tools
 
             float amountVal = (float)double.Parse(textQuantity.Text);
 
-            float exchange_result_eur = amountVal * jCrypto[0].price_eur;
-            float exchange_result_usd = amountVal * jCrypto[0].price_usd;
-            Console.WriteLine("Value of exchange_result_eur: " + exchange_result_eur);
-            Console.WriteLine("Value of exchange_result_usd: " + exchange_result_usd);
-            lblResult.Text = String.Format("{0:€#,##0.0000;(€#,##0.0000);Zero}", exchange_result_eur);
+            if(selecetedFiat == "EUR")
+            {
+                float exchange_result_eur = amountVal * jCrypto[0].price_eur;
+                Console.WriteLine("Value of exchange_result_eur: " + exchange_result_eur);
+                lblResult.Text = String.Format("{0:€#,##0.0000;(€#,##0.0000);Zero}", exchange_result_eur);
+                debugOutput(amountVal + " " + jCrypto[0].symbol.ToString() + " = €" + exchange_result_eur);
+            }
+            else
+            {
+                float exchange_result_usd = amountVal * jCrypto[0].price_usd;
+                Console.WriteLine("Value of exchange_result_usd: " + exchange_result_usd);
+                lblResult.Text = String.Format("{0:$#,##0.0000;($#,##0.0000);Zero}", exchange_result_usd);
+                debugOutput(amountVal + " " + jCrypto[0].symbol.ToString() + " = $" + exchange_result_usd);
+            }
 
-            debugOutput(amountVal + " " + jCrypto[0].symbol.ToString() + " = " + exchange_result_eur);
+            //float exchange_result_eur = amountVal * jCrypto[0].price_eur;
+            //float exchange_result_usd = amountVal * jCrypto[0].price_usd;
+            //Console.WriteLine("Value of exchange_result_eur: " + exchange_result_eur);
+            //Console.WriteLine("Value of exchange_result_usd: " + exchange_result_usd);
+            //lblResult.Text = String.Format("{0:€#,##0.0000;(€#,##0.0000);Zero}", exchange_result_eur);
+
+            //debugOutput(amountVal + " " + jCrypto[0].symbol.ToString() + " = " + exchange_result_eur);
         }
 
 
@@ -226,11 +254,6 @@ namespace cryptoGUI_Tools
             //This function make extract the value and make the computation
             deserialiseJSONtopten(json);
         }
-
-
-
-
-
 
 
         #endregion
@@ -284,9 +307,9 @@ namespace cryptoGUI_Tools
             {
                 crypto_checked.Add("ethereum");
             }
-            if (checkBCH.Checked)
+            if (checkXVG.Checked)
             {
-                crypto_checked.Add("bitcoin-cash");
+                crypto_checked.Add("verge");
             }
             if (checkLTC.Checked)
             {
@@ -345,12 +368,14 @@ namespace cryptoGUI_Tools
         }
 
         //This method is used for avoiding users inserting non-numeric values
-        private void textQuantity_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
+        //private void textQuantity_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+        //    {
+        //        e.Handled = true;
+        //    }
+        //}
+
+
     }
 }
