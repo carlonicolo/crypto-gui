@@ -94,30 +94,26 @@ namespace cryptoGUI_Tools
                 //debugOutput("This should be equals to bitcoin ---> " + jCrypto[0].id.ToString());
                 //debugOutput("Here's the id: " + jCrypto.id);
 
-                // 
+                //
+
                 String s = "";
-                jCrypto.ForEach(x => {
+                jCrypto.ForEach(x =>
+                {
                     s += "*****************************\r\n";
-                    s += "Name: " + x.name + "\r\n";
-                    s += "Symbol: " + x.symbol + "\r\n";
-                    s += "Rank: " + x.rank + "\r\n";
-                    s += "€ price: " + x.price_eur + "\r\n";
-                    s += "$ price " + x.price_usd + "\r\n";
-                    s += "BTC price " + x.price_btc + "\r\n";
-                    s += "% 1h " + x.percent_change_1h + "\r\n";
-                    s += "% 24h " + x.percent_change_24h + "\r\n";
-                    s += "% 7d " + x.percent_change_7d + "\r\n";
+                    s += "Name: \t" + x.name + "\r\n";
+                    s += "Symbol: \t" + x.symbol + "\r\n";
+                    s += "Rank: \t" + x.rank + "\r\n";
+                    s += "€ price: \t" + x.price_eur + "\r\n";
+                    s += "$ price \t" + x.price_usd + "\r\n";
+                    s += "B price \t" + x.price_btc + "\r\n";
+                    s += "% 1h \t" + x.percent_change_1h + "\r\n";
+                    s += "% 24h \t" + x.percent_change_24h + "\r\n";
+                    s += "% 7d \t" + x.percent_change_7d + "\r\n";
                     s += "*****************************\r\n";
                 });
 
                 Console.WriteLine(s);
-
-
-
                 debugOutput(s);
-
-
-
             }
             catch (Exception ex)
             {
@@ -127,6 +123,46 @@ namespace cryptoGUI_Tools
 
         #endregion
 
+        private void deserialiseJSONtopten(string strJSON)
+        {
+            try
+            {
+                //var jPerson = JsonConvert.DeserializeObject<dynamic>(strJSON);
+                //debugOutput("Here's our JSON Object " + jPerson.ToString());
+                //debugOutput("Here's the id: " + jPerson[1].id);
+
+                //
+                var jCrypto = JsonConvert.DeserializeObject<List<jsonCrypto>>(strJSON);
+
+                //debugOutput("Here's our JSON Object " + jCrypto.GetType());
+                //debugOutput("This should be equals to bitcoin ---> " + jCrypto[0].id.ToString());
+                //debugOutput("Here's the id: " + jCrypto.id);
+
+                //
+
+                String s = "";
+                jCrypto.ForEach(x =>
+                {
+                    s += "*****************************\r\n";
+                    s += "Name: \t" + x.name + "\r\n";
+                    s += "Symbol: \t" + x.symbol + "\r\n";
+                    s += "Rank: \t" + x.rank + "\r\n";
+                    s += "$ price \t" + x.price_usd + "\r\n";
+                    s += "B price \t" + x.price_btc + "\r\n";
+                    s += "% 1h \t" + x.percent_change_1h + "\r\n";
+                    s += "% 24h \t" + x.percent_change_24h + "\r\n";
+                    s += "% 7d \t" + x.percent_change_7d + "\r\n";
+                    s += "*****************************\r\n";
+                });
+
+                Console.WriteLine(s);
+                debugOutput(s);
+            }
+            catch (Exception ex)
+            {
+                debugOutput("We had a problem: " + ex.Message.ToString());
+            }
+        }
 
 
 
@@ -188,7 +224,7 @@ namespace cryptoGUI_Tools
             var json = new WebClient().DownloadString(url);
 
             //This function make extract the value and make the computation
-            deserialiseJSON(json);
+            deserialiseJSONtopten(json);
         }
 
 
@@ -217,6 +253,103 @@ namespace cryptoGUI_Tools
             else
             {
                 Console.WriteLine("This is the state of checkBTC.CheckState: " + checkBTC.CheckState);
+            }
+        }
+
+        private void btnCheckBoxSelection_Click(object sender, EventArgs e)
+        {
+            List<string> crypto_checked = new List<string>();
+            if (checkBTC.Checked)
+            {
+                crypto_checked.Add("bitcoin");
+                //string url = @"https://api.coinmarketcap.com/v1/ticker/" + selectedCrypto + "/?convert=EUR";
+            }
+            if (checkXRP.Checked)
+            {
+                crypto_checked.Add("ripple");
+            }
+            if (checkADA.Checked)
+            {
+                crypto_checked.Add("cardano");
+            }
+            if (checkTRX.Checked)
+            {
+                crypto_checked.Add("tron");
+            }
+            if (checkXLM.Checked)
+            {
+                crypto_checked.Add("stellar");
+            }
+            if (checkETH.Checked)
+            {
+                crypto_checked.Add("ethereum");
+            }
+            if (checkBCH.Checked)
+            {
+                crypto_checked.Add("bitcoin-cash");
+            }
+            if (checkLTC.Checked)
+            {
+                crypto_checked.Add("litecoin");
+            }
+            if (checkMIOTA.Checked)
+            {
+                crypto_checked.Add("iota");
+            }
+            if (checkDASH.Checked)
+            {
+                crypto_checked.Add("dash");
+            }
+            if (checkXRM.Checked)
+            {
+                crypto_checked.Add("monero");
+            }
+            if (checkEOS.Checked)
+            {
+                crypto_checked.Add("eos");
+            }
+            if (checkBCC.Checked)
+            {
+                crypto_checked.Add("bitconnect");
+            }
+            if (checkZEC.Checked)
+            {
+                crypto_checked.Add("zcash");
+            }
+            if (checkBTS.Checked)
+            {
+                crypto_checked.Add("bitshares");
+            }
+            if(crypto_checked != null && crypto_checked.Count != 0)
+            {
+                crypto_checked.ForEach(Print);
+                crypto_checked.ForEach(x => {
+                    searchCrypto(x);
+                });
+            }
+
+        }
+
+
+        private void searchCrypto(String x)
+        {
+            string url = @"https://api.coinmarketcap.com/v1/ticker/" + x + "/?convert=EUR";
+            var json = new WebClient().DownloadString(url);
+            deserialiseJSON(json);
+        }
+
+
+        private static void Print(string s)
+        {
+            Console.WriteLine(s);
+        }
+
+        //This method is used for avoiding users inserting non-numeric values
+        private void textQuantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

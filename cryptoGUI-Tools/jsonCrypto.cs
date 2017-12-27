@@ -50,7 +50,7 @@ namespace cryptoGUI_Tools
         public string max_supply { get; set; } 
         public float percent_change_1h { get; set; }
         public float percent_change_24h { get; set; } 
-        public float percent_change_7d { get; set; } 
+        public string percent_change_7d { get; set; } 
         public float last_updated { get; set; } 
         public float price_eur { get; set; }
 

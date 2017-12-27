@@ -66,8 +66,7 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox4.Controls.Add(this.lblResult);
             this.groupBox4.Controls.Add(this.textQuantity);
             this.groupBox4.Controls.Add(this.button6);
@@ -76,24 +75,23 @@
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Location = new System.Drawing.Point(12, 12);
+            this.groupBox4.Location = new System.Drawing.Point(11, 6);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(618, 80);
+            this.groupBox4.Size = new System.Drawing.Size(520, 107);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Exchange tool";
             // 
             // lblResult
             // 
-            this.lblResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblResult.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblResult.AutoSize = true;
             this.lblResult.BackColor = System.Drawing.SystemColors.Control;
-            this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResult.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblResult.Location = new System.Drawing.Point(469, 42);
+            this.lblResult.Location = new System.Drawing.Point(345, 74);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(0, 17);
+            this.lblResult.Size = new System.Drawing.Size(0, 16);
             this.lblResult.TabIndex = 4;
             // 
             // textQuantity
@@ -102,6 +100,7 @@
             this.textQuantity.Name = "textQuantity";
             this.textQuantity.Size = new System.Drawing.Size(100, 20);
             this.textQuantity.TabIndex = 3;
+            this.textQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textQuantity_KeyPress);
             // 
             // button6
             // 
@@ -171,28 +170,28 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.txtDebugOutput);
-            this.groupBox5.Location = new System.Drawing.Point(10, 284);
+            this.groupBox5.Location = new System.Drawing.Point(11, 254);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(618, 178);
+            this.groupBox5.Size = new System.Drawing.Size(520, 364);
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Output Console";
             // 
             // txtDebugOutput
             // 
-            this.txtDebugOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDebugOutput.Location = new System.Drawing.Point(7, 19);
+            this.txtDebugOutput.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtDebugOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDebugOutput.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtDebugOutput.Location = new System.Drawing.Point(12, 19);
             this.txtDebugOutput.Multiline = true;
             this.txtDebugOutput.Name = "txtDebugOutput";
             this.txtDebugOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDebugOutput.Size = new System.Drawing.Size(605, 153);
+            this.txtDebugOutput.Size = new System.Drawing.Size(502, 339);
             this.txtDebugOutput.TabIndex = 0;
             // 
             // cmdDeserialise2
             // 
-            this.cmdDeserialise2.Location = new System.Drawing.Point(215, 264);
+            this.cmdDeserialise2.Location = new System.Drawing.Point(23, 626);
             this.cmdDeserialise2.Name = "cmdDeserialise2";
             this.cmdDeserialise2.Size = new System.Drawing.Size(75, 23);
             this.cmdDeserialise2.TabIndex = 2;
@@ -202,11 +201,10 @@
             // 
             // cmdClear2
             // 
-            this.cmdClear2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.cmdClear2.Location = new System.Drawing.Point(481, 462);
+            this.cmdClear2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmdClear2.Location = new System.Drawing.Point(431, 624);
             this.cmdClear2.Name = "cmdClear2";
-            this.cmdClear2.Size = new System.Drawing.Size(88, 23);
+            this.cmdClear2.Size = new System.Drawing.Size(88, 25);
             this.cmdClear2.TabIndex = 3;
             this.cmdClear2.Text = "Clear output";
             this.cmdClear2.UseVisualStyleBackColor = true;
@@ -214,9 +212,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.Controls.Add(this.checkBTS);
             this.groupBox1.Controls.Add(this.checkZEC);
             this.groupBox1.Controls.Add(this.checkBCC);
@@ -232,9 +228,9 @@
             this.groupBox1.Controls.Add(this.checkXRP);
             this.groupBox1.Controls.Add(this.checkTRX);
             this.groupBox1.Controls.Add(this.checkBTC);
-            this.groupBox1.Location = new System.Drawing.Point(12, 116);
+            this.groupBox1.Location = new System.Drawing.Point(11, 119);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(618, 92);
+            this.groupBox1.Size = new System.Drawing.Size(520, 99);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Crypto selection tool";
@@ -407,7 +403,7 @@
             // 
             // btnTopTen
             // 
-            this.btnTopTen.Location = new System.Drawing.Point(296, 264);
+            this.btnTopTen.Location = new System.Drawing.Point(120, 626);
             this.btnTopTen.Name = "btnTopTen";
             this.btnTopTen.Size = new System.Drawing.Size(90, 23);
             this.btnTopTen.TabIndex = 5;
@@ -417,16 +413,17 @@
             // 
             // btnCheckBoxSelection
             // 
-            this.btnCheckBoxSelection.Location = new System.Drawing.Point(494, 214);
+            this.btnCheckBoxSelection.Location = new System.Drawing.Point(445, 224);
             this.btnCheckBoxSelection.Name = "btnCheckBoxSelection";
             this.btnCheckBoxSelection.Size = new System.Drawing.Size(75, 23);
             this.btnCheckBoxSelection.TabIndex = 7;
             this.btnCheckBoxSelection.Text = "Go";
             this.btnCheckBoxSelection.UseVisualStyleBackColor = true;
+            this.btnCheckBoxSelection.Click += new System.EventHandler(this.btnCheckBoxSelection_Click);
             // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(642, 492);
+            this.ClientSize = new System.Drawing.Size(543, 661);
             this.Controls.Add(this.btnCheckBoxSelection);
             this.Controls.Add(this.btnTopTen);
             this.Controls.Add(this.groupBox1);
@@ -435,8 +432,6 @@
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "Crypto GUI Tool";
             this.groupBox4.ResumeLayout(false);
