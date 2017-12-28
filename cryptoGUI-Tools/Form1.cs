@@ -459,7 +459,7 @@ namespace cryptoGUI_Tools
         {
             if (checkSum.Checked)
             {
-                debugOutput("Sum tool selected until this checkbox will active will be computed also the sum.");
+                debugOutput("Sum tool selected ! Until this checkbox will be active, will be computed not only the exchange for the current value but also the sum with the previous. \r\n");
                 lblSum.Visible = true;
                 label2.Visible = true;
             }
@@ -473,8 +473,6 @@ namespace cryptoGUI_Tools
             }
             
         }
-
-
 
 
 

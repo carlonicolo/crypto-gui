@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblSum = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.checkSum = new System.Windows.Forms.CheckBox();
             this.lblResult = new System.Windows.Forms.Label();
@@ -63,15 +65,9 @@
             this.btnTopTen = new System.Windows.Forms.Button();
             this.btnCheckBoxSelection = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.lblSum = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox4
@@ -79,7 +75,6 @@
             this.groupBox4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.lblSum);
-            this.groupBox4.Controls.Add(this.groupBox2);
             this.groupBox4.Controls.Add(this.label1);
             this.groupBox4.Controls.Add(this.checkSum);
             this.groupBox4.Controls.Add(this.lblResult);
@@ -91,9 +86,9 @@
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(10, 14);
+            this.groupBox4.Location = new System.Drawing.Point(10, 19);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(656, 150);
+            this.groupBox4.Size = new System.Drawing.Size(656, 100);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Exchange tool";
@@ -101,10 +96,33 @@
         " amount you want exchange\r\nand select the fiat currency. Press Exchange and see " +
         "the\r\nresult also in Output Console.");
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Maroon;
+            this.label2.Location = new System.Drawing.Point(2, 70);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 16);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Sum: ";
+            this.label2.Visible = false;
+            // 
+            // lblSum
+            // 
+            this.lblSum.AutoSize = true;
+            this.lblSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSum.ForeColor = System.Drawing.Color.Maroon;
+            this.lblSum.Location = new System.Drawing.Point(62, 70);
+            this.lblSum.Name = "lblSum";
+            this.lblSum.Size = new System.Drawing.Size(0, 16);
+            this.lblSum.TabIndex = 8;
+            this.lblSum.Visible = false;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(461, 19);
+            this.label1.Location = new System.Drawing.Point(460, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(28, 13);
             this.label1.TabIndex = 6;
@@ -120,6 +138,7 @@
             this.checkSum.Size = new System.Drawing.Size(15, 14);
             this.checkSum.TabIndex = 5;
             this.checkSum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.toolTip1.SetToolTip(this.checkSum, "Selecting this checkbox will be possibile to sum the results\r\nobtained.");
             this.checkSum.UseVisualStyleBackColor = true;
             this.checkSum.CheckedChanged += new System.EventHandler(this.checkSum_CheckedChanged);
             // 
@@ -130,7 +149,7 @@
             this.lblResult.BackColor = System.Drawing.SystemColors.Control;
             this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResult.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblResult.Location = new System.Drawing.Point(489, 39);
+            this.lblResult.Location = new System.Drawing.Point(497, 39);
             this.lblResult.Name = "lblResult";
             this.lblResult.Size = new System.Drawing.Size(0, 16);
             this.lblResult.TabIndex = 4;
@@ -225,9 +244,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.txtDebugOutput);
-            this.groupBox5.Location = new System.Drawing.Point(10, 306);
+            this.groupBox5.Location = new System.Drawing.Point(12, 271);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(656, 319);
+            this.groupBox5.Size = new System.Drawing.Size(656, 240);
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Output Console";
@@ -241,13 +260,13 @@
             this.txtDebugOutput.Multiline = true;
             this.txtDebugOutput.Name = "txtDebugOutput";
             this.txtDebugOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDebugOutput.Size = new System.Drawing.Size(643, 294);
+            this.txtDebugOutput.Size = new System.Drawing.Size(643, 215);
             this.txtDebugOutput.TabIndex = 0;
             // 
             // cmdDeserialise2
             // 
             this.cmdDeserialise2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdDeserialise2.Location = new System.Drawing.Point(17, 631);
+            this.cmdDeserialise2.Location = new System.Drawing.Point(25, 517);
             this.cmdDeserialise2.Name = "cmdDeserialise2";
             this.cmdDeserialise2.Size = new System.Drawing.Size(75, 23);
             this.cmdDeserialise2.TabIndex = 2;
@@ -260,7 +279,7 @@
             // 
             this.cmdClear2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmdClear2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdClear2.Location = new System.Drawing.Point(574, 631);
+            this.cmdClear2.Location = new System.Drawing.Point(574, 517);
             this.cmdClear2.Name = "cmdClear2";
             this.cmdClear2.Size = new System.Drawing.Size(88, 25);
             this.cmdClear2.TabIndex = 3;
@@ -287,7 +306,7 @@
             this.groupBox1.Controls.Add(this.checkXRP);
             this.groupBox1.Controls.Add(this.checkBTC);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(10, 170);
+            this.groupBox1.Location = new System.Drawing.Point(10, 135);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(656, 101);
             this.groupBox1.TabIndex = 4;
@@ -383,7 +402,7 @@
             // 
             this.checkMIOTA.AutoSize = true;
             this.checkMIOTA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkMIOTA.Location = new System.Drawing.Point(254, 72);
+            this.checkMIOTA.Location = new System.Drawing.Point(268, 72);
             this.checkMIOTA.Name = "checkMIOTA";
             this.checkMIOTA.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkMIOTA.Size = new System.Drawing.Size(101, 20);
@@ -419,7 +438,7 @@
             // 
             this.checkXLM.AutoSize = true;
             this.checkXLM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkXLM.Location = new System.Drawing.Point(128, 72);
+            this.checkXLM.Location = new System.Drawing.Point(147, 72);
             this.checkXLM.Name = "checkXLM";
             this.checkXLM.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkXLM.Size = new System.Drawing.Size(101, 20);
@@ -467,7 +486,7 @@
             // 
             this.checkBTC.AutoSize = true;
             this.checkBTC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBTC.Location = new System.Drawing.Point(8, 26);
+            this.checkBTC.Location = new System.Drawing.Point(8, 25);
             this.checkBTC.Name = "checkBTC";
             this.checkBTC.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkBTC.Size = new System.Drawing.Size(104, 20);
@@ -479,7 +498,7 @@
             // btnTopTen
             // 
             this.btnTopTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTopTen.Location = new System.Drawing.Point(98, 631);
+            this.btnTopTen.Location = new System.Drawing.Point(106, 518);
             this.btnTopTen.Name = "btnTopTen";
             this.btnTopTen.Size = new System.Drawing.Size(90, 23);
             this.btnTopTen.TabIndex = 5;
@@ -491,7 +510,7 @@
             // btnCheckBoxSelection
             // 
             this.btnCheckBoxSelection.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheckBoxSelection.Location = new System.Drawing.Point(592, 277);
+            this.btnCheckBoxSelection.Location = new System.Drawing.Point(591, 242);
             this.btnCheckBoxSelection.Name = "btnCheckBoxSelection";
             this.btnCheckBoxSelection.Size = new System.Drawing.Size(75, 23);
             this.btnCheckBoxSelection.TabIndex = 7;
@@ -499,53 +518,9 @@
             this.btnCheckBoxSelection.UseVisualStyleBackColor = true;
             this.btnCheckBoxSelection.Click += new System.EventHandler(this.btnCheckBoxSelection_Click);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Location = new System.Drawing.Point(32, 64);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(363, 80);
-            this.groupBox2.TabIndex = 7;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Calculator";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(8, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(8, 45);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
-            // 
-            // lblSum
-            // 
-            this.lblSum.AutoSize = true;
-            this.lblSum.Location = new System.Drawing.Point(484, 64);
-            this.lblSum.Name = "lblSum";
-            this.lblSum.Size = new System.Drawing.Size(0, 13);
-            this.lblSum.TabIndex = 8;
-            this.lblSum.Visible = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(452, 64);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Sum: ";
-            this.label2.Visible = false;
-            // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(680, 680);
+            this.ClientSize = new System.Drawing.Size(680, 575);
             this.Controls.Add(this.btnCheckBoxSelection);
             this.Controls.Add(this.btnTopTen);
             this.Controls.Add(this.groupBox1);
@@ -562,8 +537,6 @@
             this.groupBox5.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -604,9 +577,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.CheckBox checkSum;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblSum;
         private System.Windows.Forms.Label label2;
     }
