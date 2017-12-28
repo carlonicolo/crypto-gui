@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -13,6 +14,12 @@ namespace cryptoGUI_Tools
     {
         //Array string where to put selection checkbox values
         private List<string> lst_crypto = new List<string>();
+
+        //List of exchange result eur
+        private List<double> lst_res_eur = new List<double>();
+
+        //List of exchange result usd
+        private List<double> lst_res_usd = new List<double>();
 
         public Form1()
         {
@@ -71,19 +78,38 @@ namespace cryptoGUI_Tools
                 string no_quantity = "Insert a numeric value formatted in this way 0,0";
                 debugOutput(no_quantity);
             }
-            else { 
+            else {
 
-            string selectedCrypto = cmbCrypto.SelectedItem.ToString();
-            string selectedFiat = cmbFiat.SelectedItem.ToString();
-            string url = @"https://api.coinmarketcap.com/v1/ticker/" + selectedCrypto + "/?convert=EUR";
+                if (checkSum.Checked)
+                {
+                    string selectedCrypto = cmbCrypto.SelectedItem.ToString();
+                    string selectedFiat = cmbFiat.SelectedItem.ToString();
+                    string url = @"https://api.coinmarketcap.com/v1/ticker/" + selectedCrypto + "/?convert=EUR";
 
-            //string url = @"https://api.coinmarketcap.com/v1/ticker/?convert=EUR";
-        
-            //Using System.Net
-            var json = new WebClient().DownloadString(url);
+                    //string url = @"https://api.coinmarketcap.com/v1/ticker/?convert=EUR";
 
-            //This function make extract the value and make the computation
-            exchange(json, selectedFiat);
+                    //Using System.Net
+                    var json = new WebClient().DownloadString(url);
+
+                    //This function make extract the value and make the computation
+                    exchange_sum(json, selectedFiat);
+                }
+                else
+                {
+                    string selectedCrypto = cmbCrypto.SelectedItem.ToString();
+                    string selectedFiat = cmbFiat.SelectedItem.ToString();
+                    string url = @"https://api.coinmarketcap.com/v1/ticker/" + selectedCrypto + "/?convert=EUR";
+
+                    //string url = @"https://api.coinmarketcap.com/v1/ticker/?convert=EUR";
+
+                    //Using System.Net
+                    var json = new WebClient().DownloadString(url);
+
+                    //This function make extract the value and make the computation
+                    exchange(json, selectedFiat);
+                }
+
+            
             }
 
         }
@@ -237,6 +263,62 @@ namespace cryptoGUI_Tools
         }
 
 
+        private void exchange_sum(string strJSON, string selecetedFiat)
+        {
+            var jCrypto = JsonConvert.DeserializeObject<List<jsonCrypto>>(strJSON);
+            //debugOutput("This should be equals to the selected crypto ---> " + jCrypto[0].id.ToString());
+            //debugOutput("This should be equals to the price_eur ---> " + jCrypto[0].price_eur);
+            //debugOutput("This should be equals to the price_usd ---> " + jCrypto[0].price_usd);
+            //debugOutput("This should be equqlas to the entire object jcrypto ---> " + jCrypto[0].ToString());
+
+            double amountVal = double.Parse(textQuantity.Text);
+
+            if (selecetedFiat == "EUR")
+            {
+                double exchange_result_eur = amountVal * jCrypto[0].price_eur;
+                lst_res_eur.Add(exchange_result_eur);
+
+                //Sum all values in the list
+                double result_sum = lst_res_eur.Sum();
+                
+
+                Console.WriteLine("Value of exchange_result_eur: " + exchange_result_eur);
+
+                //Value of exchange
+                lblResult.Text = String.Format("{0:€#,##0.0000;(€#,##0.0000);Zero}", exchange_result_eur);
+                lblSum.Text = String.Format("{0:€#,##0.0000;(€#,##0.0000);Zero}", result_sum);
+
+                debugOutput(amountVal + " " + jCrypto[0].symbol.ToString() + " = €" + exchange_result_eur);
+                debugOutput("Sum= €" + result_sum + "\r\n");
+             
+            }
+            else
+            {
+                double exchange_result_usd = amountVal * jCrypto[0].price_usd;
+                lst_res_usd.Add(exchange_result_usd);
+
+                //Sum all values in the list
+                double result_sum = lst_res_usd.Sum();
+
+                Console.WriteLine("Value of exchange_result_usd: " + exchange_result_usd);
+
+                //Value of exchange
+                lblSum.Text = String.Format("{0:€#,##0.0000;(€#,##0.0000);Zero}", result_sum);
+                lblResult.Text = String.Format("{0:$#,##0.0000;($#,##0.0000);Zero}", exchange_result_usd);
+
+                debugOutput(amountVal + " " + jCrypto[0].symbol.ToString() + " = $" + exchange_result_usd);
+                debugOutput("Sum= $" + result_sum + "\r\n");
+            }
+
+            //float exchange_result_eur = amountVal * jCrypto[0].price_eur;
+            //float exchange_result_usd = amountVal * jCrypto[0].price_usd;
+            //Console.WriteLine("Value of exchange_result_eur: " + exchange_result_eur);
+            //Console.WriteLine("Value of exchange_result_usd: " + exchange_result_usd);
+            //lblResult.Text = String.Format("{0:€#,##0.0000;(€#,##0.0000);Zero}", exchange_result_eur);
+
+            //debugOutput(amountVal + " " + jCrypto[0].symbol.ToString() + " = " + exchange_result_eur);
+        }
+
 
 
         /*
@@ -372,6 +454,28 @@ namespace cryptoGUI_Tools
         {
             Console.WriteLine(s);
         }
+
+        private void checkSum_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkSum.Checked)
+            {
+                debugOutput("Sum tool selected until this checkbox will active will be computed also the sum.");
+                lblSum.Visible = true;
+                label2.Visible = true;
+            }
+            else
+            {
+                lst_res_eur.Clear();
+                lst_res_usd.Clear();
+                lblSum.Text = "";
+                lblSum.Visible = false;
+                label2.Visible = false;
+            }
+            
+        }
+
+
+
 
 
         //This method is used for avoiding users inserting non-numeric values

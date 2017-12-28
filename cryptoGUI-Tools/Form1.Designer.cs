@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.checkSum = new System.Windows.Forms.CheckBox();
             this.lblResult = new System.Windows.Forms.Label();
             this.textQuantity = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
@@ -61,14 +63,25 @@
             this.btnTopTen = new System.Windows.Forms.Button();
             this.btnCheckBoxSelection = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lblSum = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox4
             // 
-            this.groupBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupBox4.Controls.Add(this.label2);
+            this.groupBox4.Controls.Add(this.lblSum);
+            this.groupBox4.Controls.Add(this.groupBox2);
+            this.groupBox4.Controls.Add(this.label1);
+            this.groupBox4.Controls.Add(this.checkSum);
             this.groupBox4.Controls.Add(this.lblResult);
             this.groupBox4.Controls.Add(this.textQuantity);
             this.groupBox4.Controls.Add(this.button6);
@@ -78,15 +91,37 @@
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(12, 6);
+            this.groupBox4.Location = new System.Drawing.Point(10, 14);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(614, 107);
+            this.groupBox4.Size = new System.Drawing.Size(656, 150);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Exchange tool";
             this.toolTip1.SetToolTip(this.groupBox4, "Tool for exchanging crypto currencies in EUR or USD.\r\nChoose a Crypto, insert the" +
         " amount you want exchange\r\nand select the fiat currency. Press Exchange and see " +
         "the\r\nresult also in Output Console.");
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(461, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(28, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Sum";
+            // 
+            // checkSum
+            // 
+            this.checkSum.AutoSize = true;
+            this.checkSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkSum.Location = new System.Drawing.Point(467, 39);
+            this.checkSum.Name = "checkSum";
+            this.checkSum.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.checkSum.Size = new System.Drawing.Size(15, 14);
+            this.checkSum.TabIndex = 5;
+            this.checkSum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkSum.UseVisualStyleBackColor = true;
+            this.checkSum.CheckedChanged += new System.EventHandler(this.checkSum_CheckedChanged);
             // 
             // lblResult
             // 
@@ -95,7 +130,7 @@
             this.lblResult.BackColor = System.Drawing.SystemColors.Control;
             this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResult.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblResult.Location = new System.Drawing.Point(484, 42);
+            this.lblResult.Location = new System.Drawing.Point(489, 39);
             this.lblResult.Name = "lblResult";
             this.lblResult.Size = new System.Drawing.Size(0, 16);
             this.lblResult.TabIndex = 4;
@@ -103,14 +138,14 @@
             // textQuantity
             // 
             this.textQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textQuantity.Location = new System.Drawing.Point(153, 34);
+            this.textQuantity.Location = new System.Drawing.Point(133, 34);
             this.textQuantity.Name = "textQuantity";
             this.textQuantity.Size = new System.Drawing.Size(100, 22);
             this.textQuantity.TabIndex = 3;
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(259, 33);
+            this.button6.Location = new System.Drawing.Point(239, 33);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(92, 25);
             this.button6.TabIndex = 2;
@@ -125,7 +160,7 @@
             this.cmbFiat.Items.AddRange(new object[] {
             "EUR",
             "USD"});
-            this.cmbFiat.Location = new System.Drawing.Point(357, 34);
+            this.cmbFiat.Location = new System.Drawing.Point(337, 34);
             this.cmbFiat.Name = "cmbFiat";
             this.cmbFiat.Size = new System.Drawing.Size(121, 24);
             this.cmbFiat.TabIndex = 1;
@@ -149,7 +184,7 @@
             "Eos",
             "Zcash",
             "BitShares"});
-            this.cmbCrypto.Location = new System.Drawing.Point(26, 34);
+            this.cmbCrypto.Location = new System.Drawing.Point(6, 34);
             this.cmbCrypto.Name = "cmbCrypto";
             this.cmbCrypto.Size = new System.Drawing.Size(121, 24);
             this.cmbCrypto.TabIndex = 1;
@@ -158,7 +193,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(377, 16);
+            this.label7.Location = new System.Drawing.Point(355, 16);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(84, 16);
             this.label7.TabIndex = 0;
@@ -168,7 +203,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(180, 16);
+            this.label6.Location = new System.Drawing.Point(160, 16);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 16);
             this.label6.TabIndex = 0;
@@ -178,7 +213,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(65, 16);
+            this.label5.Location = new System.Drawing.Point(45, 16);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 16);
             this.label5.TabIndex = 0;
@@ -190,29 +225,29 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.txtDebugOutput);
-            this.groupBox5.Location = new System.Drawing.Point(11, 286);
+            this.groupBox5.Location = new System.Drawing.Point(10, 306);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(621, 332);
+            this.groupBox5.Size = new System.Drawing.Size(656, 319);
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Output Console";
             // 
             // txtDebugOutput
             // 
-            this.txtDebugOutput.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtDebugOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtDebugOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDebugOutput.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtDebugOutput.Location = new System.Drawing.Point(7, 19);
             this.txtDebugOutput.Multiline = true;
             this.txtDebugOutput.Name = "txtDebugOutput";
             this.txtDebugOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDebugOutput.Size = new System.Drawing.Size(608, 307);
+            this.txtDebugOutput.Size = new System.Drawing.Size(643, 294);
             this.txtDebugOutput.TabIndex = 0;
             // 
             // cmdDeserialise2
             // 
             this.cmdDeserialise2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdDeserialise2.Location = new System.Drawing.Point(30, 620);
+            this.cmdDeserialise2.Location = new System.Drawing.Point(17, 631);
             this.cmdDeserialise2.Name = "cmdDeserialise2";
             this.cmdDeserialise2.Size = new System.Drawing.Size(75, 23);
             this.cmdDeserialise2.TabIndex = 2;
@@ -225,7 +260,7 @@
             // 
             this.cmdClear2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmdClear2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdClear2.Location = new System.Drawing.Point(507, 618);
+            this.cmdClear2.Location = new System.Drawing.Point(574, 631);
             this.cmdClear2.Name = "cmdClear2";
             this.cmdClear2.Size = new System.Drawing.Size(88, 25);
             this.cmdClear2.TabIndex = 3;
@@ -235,7 +270,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.groupBox1.Controls.Add(this.checkXVG);
             this.groupBox1.Controls.Add(this.checkBTS);
             this.groupBox1.Controls.Add(this.checkZEC);
@@ -252,9 +287,9 @@
             this.groupBox1.Controls.Add(this.checkXRP);
             this.groupBox1.Controls.Add(this.checkBTC);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 119);
+            this.groupBox1.Location = new System.Drawing.Point(10, 170);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(614, 113);
+            this.groupBox1.Size = new System.Drawing.Size(656, 101);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Crypto selection tool";
@@ -264,7 +299,7 @@
             // 
             this.checkXVG.AutoSize = true;
             this.checkXVG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkXVG.Location = new System.Drawing.Point(263, 26);
+            this.checkXVG.Location = new System.Drawing.Point(282, 26);
             this.checkXVG.Name = "checkXVG";
             this.checkXVG.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkXVG.Size = new System.Drawing.Size(101, 20);
@@ -276,7 +311,7 @@
             // 
             this.checkBTS.AutoSize = true;
             this.checkBTS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBTS.Location = new System.Drawing.Point(480, 72);
+            this.checkBTS.Location = new System.Drawing.Point(518, 72);
             this.checkBTS.Name = "checkBTS";
             this.checkBTS.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkBTS.Size = new System.Drawing.Size(122, 20);
@@ -288,7 +323,7 @@
             // 
             this.checkZEC.AutoSize = true;
             this.checkZEC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkZEC.Location = new System.Drawing.Point(482, 49);
+            this.checkZEC.Location = new System.Drawing.Point(520, 49);
             this.checkZEC.Name = "checkZEC";
             this.checkZEC.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkZEC.Size = new System.Drawing.Size(100, 20);
@@ -300,7 +335,7 @@
             // 
             this.checkBCC.AutoSize = true;
             this.checkBCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBCC.Location = new System.Drawing.Point(473, 26);
+            this.checkBCC.Location = new System.Drawing.Point(511, 26);
             this.checkBCC.Name = "checkBCC";
             this.checkBCC.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkBCC.Size = new System.Drawing.Size(128, 20);
@@ -312,7 +347,7 @@
             // 
             this.checkEOS.AutoSize = true;
             this.checkEOS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkEOS.Location = new System.Drawing.Point(395, 50);
+            this.checkEOS.Location = new System.Drawing.Point(420, 49);
             this.checkEOS.Name = "checkEOS";
             this.checkEOS.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkEOS.Size = new System.Drawing.Size(55, 20);
@@ -324,7 +359,7 @@
             // 
             this.checkXRM.AutoSize = true;
             this.checkXRM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkXRM.Location = new System.Drawing.Point(351, 72);
+            this.checkXRM.Location = new System.Drawing.Point(385, 72);
             this.checkXRM.Name = "checkXRM";
             this.checkXRM.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkXRM.Size = new System.Drawing.Size(112, 20);
@@ -336,7 +371,7 @@
             // 
             this.checkDASH.AutoSize = true;
             this.checkDASH.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkDASH.Location = new System.Drawing.Point(398, 27);
+            this.checkDASH.Location = new System.Drawing.Point(423, 26);
             this.checkDASH.Name = "checkDASH";
             this.checkDASH.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkDASH.Size = new System.Drawing.Size(65, 20);
@@ -348,7 +383,7 @@
             // 
             this.checkMIOTA.AutoSize = true;
             this.checkMIOTA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkMIOTA.Location = new System.Drawing.Point(235, 72);
+            this.checkMIOTA.Location = new System.Drawing.Point(254, 72);
             this.checkMIOTA.Name = "checkMIOTA";
             this.checkMIOTA.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkMIOTA.Size = new System.Drawing.Size(101, 20);
@@ -396,7 +431,7 @@
             // 
             this.checkLTC.AutoSize = true;
             this.checkLTC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkLTC.Location = new System.Drawing.Point(267, 50);
+            this.checkLTC.Location = new System.Drawing.Point(286, 50);
             this.checkLTC.Name = "checkLTC";
             this.checkLTC.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkLTC.Size = new System.Drawing.Size(108, 20);
@@ -444,7 +479,7 @@
             // btnTopTen
             // 
             this.btnTopTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTopTen.Location = new System.Drawing.Point(119, 620);
+            this.btnTopTen.Location = new System.Drawing.Point(98, 631);
             this.btnTopTen.Name = "btnTopTen";
             this.btnTopTen.Size = new System.Drawing.Size(90, 23);
             this.btnTopTen.TabIndex = 5;
@@ -456,7 +491,7 @@
             // btnCheckBoxSelection
             // 
             this.btnCheckBoxSelection.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheckBoxSelection.Location = new System.Drawing.Point(551, 238);
+            this.btnCheckBoxSelection.Location = new System.Drawing.Point(592, 277);
             this.btnCheckBoxSelection.Name = "btnCheckBoxSelection";
             this.btnCheckBoxSelection.Size = new System.Drawing.Size(75, 23);
             this.btnCheckBoxSelection.TabIndex = 7;
@@ -464,9 +499,53 @@
             this.btnCheckBoxSelection.UseVisualStyleBackColor = true;
             this.btnCheckBoxSelection.Click += new System.EventHandler(this.btnCheckBoxSelection_Click);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Location = new System.Drawing.Point(32, 64);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(363, 80);
+            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Calculator";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(8, 19);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 0;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(8, 45);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 1;
+            // 
+            // lblSum
+            // 
+            this.lblSum.AutoSize = true;
+            this.lblSum.Location = new System.Drawing.Point(484, 64);
+            this.lblSum.Name = "lblSum";
+            this.lblSum.Size = new System.Drawing.Size(0, 13);
+            this.lblSum.TabIndex = 8;
+            this.lblSum.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(452, 64);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Sum: ";
+            this.label2.Visible = false;
+            // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(645, 661);
+            this.ClientSize = new System.Drawing.Size(680, 680);
             this.Controls.Add(this.btnCheckBoxSelection);
             this.Controls.Add(this.btnTopTen);
             this.Controls.Add(this.groupBox1);
@@ -483,6 +562,8 @@
             this.groupBox5.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -521,6 +602,13 @@
         private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.CheckBox checkXVG;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.CheckBox checkSum;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lblSum;
+        private System.Windows.Forms.Label label2;
     }
 }
 
