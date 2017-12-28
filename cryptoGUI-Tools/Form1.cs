@@ -343,12 +343,18 @@ namespace cryptoGUI_Tools
             {
                 crypto_checked.Add("bitshares");
             }
-            if(crypto_checked != null && crypto_checked.Count != 0)
+            if (crypto_checked != null && crypto_checked.Count != 0)
             {
                 crypto_checked.ForEach(Print);
-                crypto_checked.ForEach(x => {
+                crypto_checked.ForEach(x =>
+                {
                     searchCrypto(x);
                 });
+            }
+            else
+            {
+                string no_check_box_selected = "Please select one or more crypto currencies !";
+                debugOutput(no_check_box_selected);
             }
 
         }
@@ -366,6 +372,7 @@ namespace cryptoGUI_Tools
         {
             Console.WriteLine(s);
         }
+
 
         //This method is used for avoiding users inserting non-numeric values
         //private void textQuantity_KeyPress(object sender, KeyPressEventArgs e)
