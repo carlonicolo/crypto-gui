@@ -65,9 +65,11 @@
             this.btnTopTen = new System.Windows.Forms.Button();
             this.btnCheckBoxSelection = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox4
@@ -86,7 +88,7 @@
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(10, 19);
+            this.groupBox4.Location = new System.Drawing.Point(25, 12);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(656, 100);
             this.groupBox4.TabIndex = 0;
@@ -174,6 +176,7 @@
             // 
             // cmbFiat
             // 
+            this.cmbFiat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFiat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbFiat.FormattingEnabled = true;
             this.cmbFiat.Items.AddRange(new object[] {
@@ -186,6 +189,7 @@
             // 
             // cmbCrypto
             // 
+            this.cmbCrypto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCrypto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCrypto.FormattingEnabled = true;
             this.cmbCrypto.Items.AddRange(new object[] {
@@ -244,9 +248,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.txtDebugOutput);
-            this.groupBox5.Location = new System.Drawing.Point(12, 271);
+            this.groupBox5.Location = new System.Drawing.Point(705, 12);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(656, 240);
+            this.groupBox5.Size = new System.Drawing.Size(469, 224);
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Output Console";
@@ -256,17 +260,17 @@
             this.txtDebugOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtDebugOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDebugOutput.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtDebugOutput.Location = new System.Drawing.Point(7, 19);
+            this.txtDebugOutput.Location = new System.Drawing.Point(6, 19);
             this.txtDebugOutput.Multiline = true;
             this.txtDebugOutput.Name = "txtDebugOutput";
             this.txtDebugOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDebugOutput.Size = new System.Drawing.Size(643, 215);
+            this.txtDebugOutput.Size = new System.Drawing.Size(457, 189);
             this.txtDebugOutput.TabIndex = 0;
             // 
             // cmdDeserialise2
             // 
             this.cmdDeserialise2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdDeserialise2.Location = new System.Drawing.Point(25, 517);
+            this.cmdDeserialise2.Location = new System.Drawing.Point(545, 548);
             this.cmdDeserialise2.Name = "cmdDeserialise2";
             this.cmdDeserialise2.Size = new System.Drawing.Size(75, 23);
             this.cmdDeserialise2.TabIndex = 2;
@@ -279,7 +283,7 @@
             // 
             this.cmdClear2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmdClear2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdClear2.Location = new System.Drawing.Point(574, 517);
+            this.cmdClear2.Location = new System.Drawing.Point(1086, 242);
             this.cmdClear2.Name = "cmdClear2";
             this.cmdClear2.Size = new System.Drawing.Size(88, 25);
             this.cmdClear2.TabIndex = 3;
@@ -306,7 +310,7 @@
             this.groupBox1.Controls.Add(this.checkXRP);
             this.groupBox1.Controls.Add(this.checkBTC);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(10, 135);
+            this.groupBox1.Location = new System.Drawing.Point(25, 135);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(656, 101);
             this.groupBox1.TabIndex = 4;
@@ -498,7 +502,7 @@
             // btnTopTen
             // 
             this.btnTopTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTopTen.Location = new System.Drawing.Point(106, 518);
+            this.btnTopTen.Location = new System.Drawing.Point(626, 548);
             this.btnTopTen.Name = "btnTopTen";
             this.btnTopTen.Size = new System.Drawing.Size(90, 23);
             this.btnTopTen.TabIndex = 5;
@@ -510,7 +514,7 @@
             // btnCheckBoxSelection
             // 
             this.btnCheckBoxSelection.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheckBoxSelection.Location = new System.Drawing.Point(591, 242);
+            this.btnCheckBoxSelection.Location = new System.Drawing.Point(606, 244);
             this.btnCheckBoxSelection.Name = "btnCheckBoxSelection";
             this.btnCheckBoxSelection.Size = new System.Drawing.Size(75, 23);
             this.btnCheckBoxSelection.TabIndex = 7;
@@ -518,9 +522,18 @@
             this.btnCheckBoxSelection.UseVisualStyleBackColor = true;
             this.btnCheckBoxSelection.Click += new System.EventHandler(this.btnCheckBoxSelection_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 286);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(1162, 256);
+            this.dataGridView1.TabIndex = 8;
+            // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(680, 575);
+            this.ClientSize = new System.Drawing.Size(1205, 575);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnCheckBoxSelection);
             this.Controls.Add(this.btnTopTen);
             this.Controls.Add(this.groupBox1);
@@ -529,6 +542,8 @@
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "Crypto GUI Tool - Powered by Karlitos";
             this.groupBox4.ResumeLayout(false);
@@ -537,6 +552,7 @@
             this.groupBox5.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -579,6 +595,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblSum;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

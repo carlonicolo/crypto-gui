@@ -35,27 +35,29 @@ namespace cryptoGUI_Tools
 {
     class jsonCrypto
     {
-        public string id { get; set; }
-        public string name { get; set; }
+        //public string id { get; set; }
+
+        
+        public string Name { get; set; }
         public string symbol { get; set; }
         public int rank { get; set; }
         public float price_usd { get; set; }
         public float price_btc { get; set; }
 
-        [JsonProperty("24h_volume_usd")]
-        public float volume_usd { get; set; }
+        //[JsonProperty("24h_volume_usd")]
+        //public float volume_usd { get; set; }
         public float market_cap_usd { get; set; }
-        public float available_supply { get; set; }
-        public float total_supply { get; set; } 
-        public string max_supply { get; set; } 
+        //public float available_supply { get; set; }
+        //public float total_supply { get; set; } 
+        //public string max_supply { get; set; } 
         public float percent_change_1h { get; set; }
         public float percent_change_24h { get; set; } 
         public string percent_change_7d { get; set; } 
-        public float last_updated { get; set; } 
+        //public float last_updated { get; set; } 
         public float price_eur { get; set; }
 
-        [JsonProperty("24h_volume_eur")]
-        public float volume_eur { get; set; } 
+        //[JsonProperty("24h_volume_eur")]
+        //public float volume_eur { get; set; } 
         public float market_cap_eur { get; set; }
         
 

@@ -41,12 +41,20 @@ namespace cryptoGUI_Tools
             var json = new WebClient().DownloadString(url);
 
             Console.WriteLine("This is the json variable content: " + json);
+
+            var jCrypto = JsonConvert.DeserializeObject<List<jsonCrypto>>(json);
+
+            dataGridView1.DataSource = jCrypto;
+
             deserialiseJSON(json);
         }
 
         private void cmdClear2_Click(object sender, EventArgs e)
         {
             txtDebugOutput.Text = string.Empty;
+            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
         }
 
         /*
@@ -139,7 +147,7 @@ namespace cryptoGUI_Tools
                 jCrypto.ForEach(x =>
                 {
                     s += "*****************************\r\n";
-                    s += "Name: \t" + x.name + "\r\n";
+                    s += "Name: \t" + x.Name + "\r\n";
                     s += "Symbol: \t" + x.symbol + "\r\n";
                     s += "Rank: \t" + x.rank + "\r\n";
                     s += "€ price: \t" + x.price_eur + "\r\n";
@@ -183,9 +191,10 @@ namespace cryptoGUI_Tools
                 jCrypto.ForEach(x =>
                 {
                     s += "*****************************\r\n";
-                    s += "Name: \t" + x.name + "\r\n";
+                    s += "Name: \t" + x.Name + "\r\n";
                     s += "Symbol: \t" + x.symbol + "\r\n";
                     s += "Rank: \t" + x.rank + "\r\n";
+                    s += "€ price: \t" + x.price_eur + "\r\n";
                     s += "$ price \t" + x.price_usd + "\r\n";
                     s += "B price \t" + x.price_btc + "\r\n";
                     s += "% 1h \t" + x.percent_change_1h + "\r\n";
@@ -328,10 +337,14 @@ namespace cryptoGUI_Tools
         */
         private void btnTopTen_Click(object sender, EventArgs e)
         {
-            string url = @"https://api.coinmarketcap.com/v1/ticker/?limit=10";
+            string url = @"https://api.coinmarketcap.com/v1/ticker/?convert=EUR&limit=10";
             
             //Using System.Net
             var json = new WebClient().DownloadString(url);
+
+            var jCrypto = JsonConvert.DeserializeObject<List<jsonCrypto>>(json);
+
+            dataGridView1.DataSource = jCrypto;
 
             //This function make extract the value and make the computation
             deserialiseJSONtopten(json);
@@ -446,6 +459,10 @@ namespace cryptoGUI_Tools
         {
             string url = @"https://api.coinmarketcap.com/v1/ticker/" + x + "/?convert=EUR";
             var json = new WebClient().DownloadString(url);
+
+            var jCrypto = JsonConvert.DeserializeObject<List<jsonCrypto>>(json);
+
+
             deserialiseJSON(json);
         }
 
@@ -473,6 +490,22 @@ namespace cryptoGUI_Tools
             }
             
         }
+
+        private void btnGridView_Click(object sender, EventArgs e)
+        {
+            string url = @"https://api.coinmarketcap.com/v1/ticker/?convert=EUR";
+
+            //Using System.Net
+            var json = new WebClient().DownloadString(url);
+
+            Console.WriteLine("This is the json variable content: " + json);
+            var jCrypto = JsonConvert.DeserializeObject<List<jsonCrypto>>(json);
+
+            dataGridView1.DataSource = jCrypto;
+
+
+        }
+
 
 
 
