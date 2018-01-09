@@ -48,7 +48,7 @@
             this.cmdClear2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.checkXVG = new System.Windows.Forms.CheckBox();
-            this.checkBTS = new System.Windows.Forms.CheckBox();
+            this.checkXDG = new System.Windows.Forms.CheckBox();
             this.checkZEC = new System.Windows.Forms.CheckBox();
             this.checkBCC = new System.Windows.Forms.CheckBox();
             this.checkEOS = new System.Windows.Forms.CheckBox();
@@ -206,7 +206,8 @@
             "Dash",
             "Eos",
             "Zcash",
-            "BitShares"});
+            "BitShares",
+            "Dogecoin"});
             this.cmbCrypto.Location = new System.Drawing.Point(6, 34);
             this.cmbCrypto.Name = "cmbCrypto";
             this.cmbCrypto.Size = new System.Drawing.Size(121, 24);
@@ -295,7 +296,7 @@
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.groupBox1.Controls.Add(this.checkXVG);
-            this.groupBox1.Controls.Add(this.checkBTS);
+            this.groupBox1.Controls.Add(this.checkXDG);
             this.groupBox1.Controls.Add(this.checkZEC);
             this.groupBox1.Controls.Add(this.checkBCC);
             this.groupBox1.Controls.Add(this.checkEOS);
@@ -330,17 +331,17 @@
             this.checkXVG.Text = "XVG - Verge";
             this.checkXVG.UseVisualStyleBackColor = true;
             // 
-            // checkBTS
+            // checkXDG
             // 
-            this.checkBTS.AutoSize = true;
-            this.checkBTS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBTS.Location = new System.Drawing.Point(518, 72);
-            this.checkBTS.Name = "checkBTS";
-            this.checkBTS.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBTS.Size = new System.Drawing.Size(122, 20);
-            this.checkBTS.TabIndex = 0;
-            this.checkBTS.Text = "BTS - BitShares";
-            this.checkBTS.UseVisualStyleBackColor = true;
+            this.checkXDG.AutoSize = true;
+            this.checkXDG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkXDG.Location = new System.Drawing.Point(518, 72);
+            this.checkXDG.Name = "checkXDG";
+            this.checkXDG.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.checkXDG.Size = new System.Drawing.Size(124, 20);
+            this.checkXDG.TabIndex = 0;
+            this.checkXDG.Text = "XDG - Dogecoin";
+            this.checkXDG.UseVisualStyleBackColor = true;
             // 
             // checkZEC
             // 
@@ -573,7 +574,7 @@
         private System.Windows.Forms.TextBox txtDebugOutput;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnTopTen;
-        private System.Windows.Forms.CheckBox checkBTS;
+        private System.Windows.Forms.CheckBox checkXDG;
         private System.Windows.Forms.CheckBox checkZEC;
         private System.Windows.Forms.CheckBox checkBCC;
         private System.Windows.Forms.CheckBox checkEOS;

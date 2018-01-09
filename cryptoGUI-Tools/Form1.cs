@@ -312,7 +312,7 @@ namespace cryptoGUI_Tools
                 Console.WriteLine("Value of exchange_result_usd: " + exchange_result_usd);
 
                 //Value of exchange
-                lblSum.Text = String.Format("{0:€#,##0.0000;(€#,##0.0000);Zero}", result_sum);
+                lblSum.Text = String.Format("{0:$#,##0.0000;(€#,##0.0000);Zero}", result_sum);
                 lblResult.Text = String.Format("{0:$#,##0.0000;($#,##0.0000);Zero}", exchange_result_usd);
 
                 debugOutput(amountVal + " " + jCrypto[0].symbol.ToString() + " = $" + exchange_result_usd);
@@ -434,9 +434,9 @@ namespace cryptoGUI_Tools
             {
                 crypto_checked.Add("zcash");
             }
-            if (checkBTS.Checked)
+            if (checkXDG.Checked)
             {
-                crypto_checked.Add("bitshares");
+                crypto_checked.Add("dogecoin");
             }
             if (crypto_checked != null && crypto_checked.Count != 0)
             {
